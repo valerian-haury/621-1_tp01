@@ -3,6 +3,8 @@
 	<name>TP01ServiceCallback</name>
 	<comment></comment>
 	<projects>
+		<project>Servers</project>
+		<project>TP09_correction</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
