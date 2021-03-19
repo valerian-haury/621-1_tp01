@@ -1,7 +1,12 @@
 package ch.hesge.callback;
 
+import java.io.BufferedReader;
 import java.io.IOException;
-
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 import javax.ws.rs.core.*;
 import org.apache.http.HttpResponse;
@@ -42,7 +47,21 @@ public class CallBack  extends Thread{
 	
 	//Méthode a  modifier
 	public  void envoieCallback(String url) {
-
-		
+		URL httpUrl;
+		HttpURLConnection conn;
+		try {
+			httpUrl = new URL(url);
+			conn = (HttpURLConnection)httpUrl.openConnection();
+			conn.setRequestProperty("Content-Type", "text/plain");
+			conn.setRequestMethod("POST");
+			conn.setDoOutput(true);
+			OutputStreamWriter writer = new OutputStreamWriter(conn.getOutputStream(), "UTF-8");
+			writer.write("La réponse envoyée");
+			writer.close();
+			conn.getInputStream();
+			conn.connect();
+		} catch (IOException e) {
+			System.err.println(e);
+		}	
 	}
 }
