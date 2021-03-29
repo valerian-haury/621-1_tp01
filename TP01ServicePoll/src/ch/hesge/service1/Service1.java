@@ -1,8 +1,30 @@
 package ch.hesge.service1;
 
-public class Service1 {
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-	public String methode1() {
-		return "Service1 ";
+import javax.ws.rs.*;
+import javax.ws.rs.core.Context;
+
+import ch.hesge.db.CalculeThread;
+
+@Path("/service1")
+public class Service1 {
+	@GET
+	@Path("/number")
+	public String methode1(@Context HttpServletRequest request,
+			@Context HttpServletResponse response) {
+		new CalculeThread().run();
+		
+		response.setStatus(HttpServletResponse.SC_ACCEPTED);
+		response.setHeader("Location", "http://localhost:8080/TP01ServicePoll/service2/number");
+		
+		try {
+			response.flushBuffer();
+		} catch (Exception e) {
+			
+		}
+		
+		return "Service1";
 	}
 }
