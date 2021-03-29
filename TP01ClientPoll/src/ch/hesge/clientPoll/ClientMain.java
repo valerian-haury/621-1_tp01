@@ -28,13 +28,13 @@ public class ClientMain {
 			
 			request = new HttpGet(location);
 			response = client.execute(request);
-			
+
 			int cpt = 0;
-			while(client.execute(request).getStatusLine().getStatusCode() != 202) {
+			while(response.getStatusLine().getStatusCode() != 202) {
 				cpt++;
 			}
 			
-			System.out.println(cpt);
+			System.out.println("La requête est prête après " + cpt + " Poll");
 		}
 	}
 }

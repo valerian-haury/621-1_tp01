@@ -1,5 +1,7 @@
 package ch.hesge.service2;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -15,6 +17,13 @@ public class Service2 {
 	public String methode1(@Context HttpServletResponse response)   {
 		if(new Database().reponsePrete()) {
 			response.setStatus(HttpServletResponse.SC_ACCEPTED);
+			
+			try {
+				response.flushBuffer();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
 			return "Le calcul est fait";
 		}
 		

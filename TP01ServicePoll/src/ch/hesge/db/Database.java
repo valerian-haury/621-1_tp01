@@ -68,7 +68,8 @@ public class Database {
    * @return true si cpt >=1
    */
   public  boolean reponsePrete () {
-	  if (Integer.parseInt(read()) < 1) {
+	  if (Integer.parseInt(read()) < 10) {
+		  System.out.println("minus");
 			return false;
 		}else {
 			initialiser();

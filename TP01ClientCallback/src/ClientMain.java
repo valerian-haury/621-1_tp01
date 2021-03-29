@@ -44,7 +44,6 @@ public class ClientMain {
 
 		try {
 			resultStatusCode = asyncResponse.thenApply(HttpResponse::statusCode).get(5, TimeUnit.SECONDS);
-
 		} catch (InterruptedException | ExecutionException | TimeoutException e) {
 			e.printStackTrace();
 		}
