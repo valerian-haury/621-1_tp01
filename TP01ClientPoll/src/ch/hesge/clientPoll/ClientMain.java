@@ -31,10 +31,11 @@ public class ClientMain {
 
 			int cpt = 0;
 			while(response.getStatusLine().getStatusCode() != 202) {
+				client.execute(request);
 				cpt++;
 			}
 			
-			System.out.println("La requête est prête après " + cpt + " Poll");
+			System.out.println("La requÃªte est prÃªte aprÃ¨s " + cpt + " Poll");
 		}
 	}
 }
