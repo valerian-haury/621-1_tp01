@@ -16,7 +16,7 @@ public class Service2 {
 	@Path("/number")
 	public String methode1(@Context HttpServletResponse response)   {
 		if(new Database().reponsePrete()) {
-			response.setStatus(HttpServletResponse.SC_ACCEPTED);
+			response.setStatus(204);
 			
 			try {
 				response.flushBuffer();
