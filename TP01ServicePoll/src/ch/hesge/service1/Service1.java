@@ -16,7 +16,7 @@ public class Service1 {
 			@Context HttpServletResponse response) {
 		new CalculeThread().run();
 		
-		response.setStatus(204);
+		response.setStatus(HttpServletResponse.SC_ACCEPTED);
 		response.setHeader("Location", "http://localhost:8080/TP01ServicePoll/service2/number");
 		
 		try {
