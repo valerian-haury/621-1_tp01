@@ -5,7 +5,7 @@ import java.net.URLDecoder;
 
 /**
 implemente la partie : Queue/RequestProcessor/Database
-lit dans un fichier text où un compteur est increment� ,
+lit dans un fichier text oÃ¹ un compteur est incrementé ,
 
 */
 public class Database {
@@ -68,8 +68,7 @@ public class Database {
    * @return true si cpt >=1
    */
   public  boolean reponsePrete () {
-	  if (Integer.parseInt(read()) < 10) {
-		  System.out.println("minus");
+	  if (Integer.parseInt(read()) < 1) {
 			return false;
 		}else {
 			initialiser();
