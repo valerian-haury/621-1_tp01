@@ -30,10 +30,12 @@ public class ClientMain {
 			response = client.execute(request);
 
 			int cpt = 0;
-			while(response.getStatusLine().getStatusCode() != 202) {
-				client.execute(request);
+			
+			do {
+				System.out.println("Requête pas encore prête, veuillez patienter....");
 				cpt++;
-			}
+				client.execute(request);
+			} while(response.getStatusLine().getStatusCode() != 202);
 			
 			System.out.println("La requête est prête après " + cpt + " Poll");
 		}
