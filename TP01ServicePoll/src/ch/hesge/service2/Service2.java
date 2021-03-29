@@ -16,7 +16,7 @@ public class Service2 {
 	@Path("/number")
 	public String methode1(@Context HttpServletResponse response)   {
 		if(new Database().reponsePrete()) {
-			response.setStatus(HttpServletResponse.SC_ACCEPTED);
+			response.setStatus(HttpServletResponse.SC_OK);
 			
 			try {
 				response.flushBuffer();
@@ -25,6 +25,14 @@ public class Service2 {
 			}
 			
 			return "Le calcul est fait";
+		}
+		
+		response.setStatus(HttpServletResponse.SC_ACCEPTED);
+			
+		try {
+			response.flushBuffer();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 		
 		return null;
