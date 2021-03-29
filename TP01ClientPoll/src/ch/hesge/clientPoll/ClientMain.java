@@ -23,7 +23,7 @@ public class ClientMain {
 		HttpGet request = new HttpGet(URL);
 		HttpResponse response = client.execute(request);
 
-		if(response.getStatusLine().getStatusCode() == 202) {
+		if(response.getStatusLine().getStatusCode() == 303) {
 			String location = response.getHeaders("Location")[0].getValue();
 			
 			request = new HttpGet(location);
@@ -35,7 +35,7 @@ public class ClientMain {
 				System.out.println("Requête pas encore prête, veuillez patienter....");
 				cpt++;
 				client.execute(request);
-			} while(response.getStatusLine().getStatusCode() != 202);
+			} while(response.getStatusLine().getStatusCode() != 200);
 			
 			System.out.println("La requête est prête après " + cpt + " Poll");
 		}
