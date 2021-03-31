@@ -23,14 +23,7 @@ public class ClientMain {
 		String url = "http://localhost:8080/TP01ServiceCallback/service/calcule";
 		String responseServiceUrl = "http://localhost:8080/TP01ServiceCallback/serviceCallback/resultat";
 
-		/*
-		 * HttpClient client = HttpClientBuilder.create().build(); HttpPost request =
-		 * new HttpPost(url); request.setHeader("Content-Type", "text/plain");
-		 * request.setHeader("Location", responseServiceUrl); try { HttpResponse
-		 * response = client.execute(request);
-		 * System.out.println(response.getStatusLine().getStatusCode()); } catch
-		 * (IOException e) { System.err.println(e); }
-		 */
+
 		HttpClient client = HttpClient.newBuilder().version(HttpClient.Version.HTTP_1_1)
 				.connectTimeout(Duration.ofSeconds(5)).build();
 
