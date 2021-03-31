@@ -14,26 +14,19 @@ public class Service2 {
 
 	@GET
 	@Path("/number")
-	public String methode1(@Context HttpServletResponse response)   {
-		if(new Database().reponsePrete()) {
+	public String methode1(@Context HttpServletResponse response) throws IOException   {
+		boolean reponsePrete= new Database().reponsePrete();
+		
+		if(reponsePrete) {
 			response.setStatus(HttpServletResponse.SC_OK);
 			
-			try {
-				response.flushBuffer();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+			response.flushBuffer();
 			
 			return "Le calcul est fait";
 		}
 		
 		response.setStatus(HttpServletResponse.SC_ACCEPTED);
-			
-		try {
-			response.flushBuffer();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		response.flushBuffer();
 		
 		return null;
 	}

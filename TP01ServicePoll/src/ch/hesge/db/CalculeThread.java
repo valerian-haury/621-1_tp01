@@ -16,7 +16,7 @@ public class CalculeThread  extends Thread{
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		
+
 		new Database().inc();
 	}
 }

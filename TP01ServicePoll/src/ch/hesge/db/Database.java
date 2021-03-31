@@ -70,7 +70,7 @@ public class Database {
   public  boolean reponsePrete () {
 	  if (Integer.parseInt(read()) < 1) {
 			return false;
-		}else {
+		} else {
 			initialiser();
 			return true;	    
 		}
